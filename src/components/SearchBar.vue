@@ -1,5 +1,9 @@
 <script setup>
 import { reactive, defineEmits } from 'vue'
+// defineProps({
+//   weatherList: Array
+// })
+// TODO: Desactivar submit si la lista de lugares es igual a 6
 
 const state = reactive({
   searchPlace: '',
@@ -34,11 +38,11 @@ const getPlaceId = async (id) => {
         <input
           type="text"
           v-model="state.searchPlace"
-          class="p-3 w-full md:w-3/5 bg-indigo-100 text-center rounded-lg"
+          class="p-3 w-full md:w-3/5 bg-indigo-100 text-center rounded-lg shadow-lg"
         />
         <button
           type="submit"
-          class="p-3 bg-indigo-300 text-white rounded-lg ml-2 hover:bg-indigo-400"
+          class="p-3 bg-indigo-300 text-white rounded-lg ml-2 hover:bg-indigo-400 shadow-md"
         >
           Search
         </button>

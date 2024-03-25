@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="text-white p-10 rounded-lg shadow-xl gap-6 mb-6 relative bg-blue-400">
+  <div class="text-white p-10 rounded-lg shadow-2xl gap-6 mb-6 relative bg-blue-400">
     <div class="flex flex-col gap-2">
       <p class="text-2xl font-semibold text-center">
         {{ weatherInfo.location.name }}, {{ weatherInfo.location.country }}
