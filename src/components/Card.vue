@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
-  weatherInfo: Object
+  weatherInfo: Object,
+  isDay: Boolean
 })
 </script>
 
@@ -28,7 +29,11 @@ defineProps({
     </div>
     <div>
       <div class="grid grid-cols-3 gap-6 mt-6">
-        <div v-for="forecast in weatherInfo.forecast.forecastday" :key="forecast.date">
+        <div
+          v-for="forecast in weatherInfo.forecast.forecastday"
+          :key="forecast.date"
+          class="border-x-2 border-slate-200 p-2"
+        >
           <p class="text-center">{{ new Date(forecast.date).getDate() }}</p>
           <img
             :src="forecast.day.condition.icon"

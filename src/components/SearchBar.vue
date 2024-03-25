@@ -30,11 +30,19 @@ const getPlaceId = async (id) => {
 <template>
   <div class="w-full flex justify-center items-center flex-col">
     <form @submit.prevent="search" class="w-full flex justify-center items-center">
-      <input
-        type="text"
-        v-model="state.searchPlace"
-        class="p-3 w-3/4 bg-gray-200 text-center rounded-lg"
-      />
+      <div class="w-full flex justify-center items-center">
+        <input
+          type="text"
+          v-model="state.searchPlace"
+          class="p-3 w-full md:w-3/5 bg-indigo-100 text-center rounded-lg"
+        />
+        <button
+          type="submit"
+          class="p-3 bg-indigo-300 text-white rounded-lg ml-2 hover:bg-indigo-400"
+        >
+          Search
+        </button>
+      </div>
     </form>
     <div class="w-full">
       <div
