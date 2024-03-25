@@ -12,9 +12,9 @@ const addWeatherPlaceToList = (data) => {
 
 <template>
   <SearchBar @weather-list="addWeatherPlaceToList" />
-  <div class="grid grid-cols-2 gap-5">
-    <div v-for="item in weatherPlacesList" :key="item.location.name">
-      <Card :item="item" />
+  <div class="grid grid-cols-2 gap-6 mt-3">
+    <div v-for="weatherInfo in weatherPlacesList" :key="weatherInfo.location.name">
+      <Card :weatherInfo="weatherInfo" />
     </div>
   </div>
 </template>
