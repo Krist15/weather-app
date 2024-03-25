@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, defineEmits } from 'vue'
+import { reactive } from 'vue'
 // defineProps({
 //   weatherList: Array
 // })
@@ -14,7 +14,7 @@ const emit = defineEmits(['weatherList'])
 
 const search = async () => {
   const res = await fetch(
-    `http://api.weatherapi.com/v1/search.json?key=b2a56c3f83b649dca5434428231306&q=${state.searchPlace}`
+    `https://api.weatherapi.com/v1/search.json?key=b2a56c3f83b649dca5434428231306&q=${state.searchPlace}`
   )
   const data = await res.json()
   state.data = data
@@ -22,7 +22,7 @@ const search = async () => {
 
 const getPlaceId = async (id) => {
   const res =
-    await fetch(`http://api.weatherapi.com/v1/forecast.json?key=b2a56c3f83b649dca5434428231306&q=id:${id}&days=3&aqi=no&alerts=no
+    await fetch(`https://api.weatherapi.com/v1/forecast.json?key=b2a56c3f83b649dca5434428231306&q=id:${id}&days=3&aqi=no&alerts=no
 `)
   const data = await res.json()
   emit('weatherList', data)
