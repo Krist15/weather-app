@@ -1,19 +1,18 @@
 <script setup>
-import { reactive } from 'vue'
-import ListComponent from './ListComponent.vue'
+import { reactive, defineEmits } from 'vue'
 
 const state = reactive({
   searchPlace: '',
   data: []
 })
 
+const emit = defineEmits(['weatherList'])
+
 const search = async () => {
   const res = await fetch(
     `http://api.weatherapi.com/v1/search.json?key=b2a56c3f83b649dca5434428231306&q=${state.searchPlace}`
   )
   const data = await res.json()
-  console.log(data)
-
   state.data = data
 }
 
@@ -22,8 +21,9 @@ const getPlaceId = async (id) => {
     await fetch(`http://api.weatherapi.com/v1/forecast.json?key=b2a56c3f83b649dca5434428231306&q=$id:${id}&days=3&aqi=no&alerts=no
 `)
   const data = await res.json()
-
-  console.log(data)
+  emit('weatherList', data)
+  state.data = []
+  state.searchPlace = ''
 }
 </script>
 
